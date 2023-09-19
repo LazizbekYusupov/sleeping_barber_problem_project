@@ -7,8 +7,6 @@
 
 int main(void)
 {
-    printf("Test changes to web repository\n");
-
     barbershop_simulation_start();
 
     pthread_cancel(0);

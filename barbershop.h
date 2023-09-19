@@ -3,8 +3,6 @@
 #include "chairs_queue.h"
 #include "barber.h"
 
-#define TEST_CHANGES 128
-
 typedef struct barbershop_
 {
     chair_queue_t* chair_queue;
