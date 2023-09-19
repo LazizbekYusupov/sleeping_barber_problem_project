@@ -115,17 +115,13 @@ void* barber_lifecycle(void* arg)
     chair_queue_t* chair_queue = barbershop_global->chair_queue;
     chair_t* current_chair = NULL;
     customer_t* current_customer = NULL;
-    size_t i = 0;
-    size_t empty_chairs_count = 0;
 
     printf("Barbershop started!\n");
 
     while (1)
     {
-        if(i == CHAIR_COUNT)
-        {
-            printf("Barber reached the last chair here, to start over the loop again\n");
-            if(empty_chairs_count == CHAIR_COUNT)
+            printf("Start over chair loop from the beginning\n");
+            if(barber_global->barber_state == BARBER_GOING_TO_SLEEP)
             {
                 printf("Barber encountered all empty chairs to sleep\n");
                 pthread_mutex_lock(&barber_global->barber_mutex);
@@ -133,42 +129,43 @@ void* barber_lifecycle(void* arg)
                 barber_global->barber_state = BARBER_SLEEPING;
                 pthread_cond_wait(&barber_global->barber_cv, &barber_global->barber_mutex);
                 printf("Barber woke up here and to unlock its mutex\n");
+
                 pthread_mutex_unlock(&barber_global->barber_mutex);
             }
 
-            empty_chairs_count = 0;
-            i = 0;
-        }
+        barber_global->barber_state = BARBER_GOING_TO_SLEEP;
 
-        pthread_mutex_lock(&chair_queue->chair_queue_mutex);
-        current_chair = get_chair_in_position(chair_queue, i);
-        printf("Barber got chair_%zd here\n", current_chair->order_number);
-
-        if(current_chair->chair_state == CHAIR_BUSY)
+        for (int i = 0; i < CHAIR_COUNT; i++)
         {
-            printf("Chair %zd found to be busy, now taking hair for 2 seconds\n", current_chair->order_number);
-            sleep(2);
+            pthread_mutex_lock(&chair_queue->chair_queue_mutex);
+            current_chair = get_chair_in_position(chair_queue, i);
+            printf("Barber got chair_%zd here\n", current_chair->order_number);
 
-            pthread_mutex_lock(&current_customer->customer_mutex);
-            printf("Barber locked Customer_%zd to change state\n", current_customer->id);
+            if(current_chair->chair_state == CHAIR_BUSY)
+            {
+                barber_global->barber_state = BARBER_NOT_GOING_TO_SLEEP;
 
-            current_customer = (customer_t*)current_chair->customer_on_chair;
+                printf("Chair %zd found to be busy, now taking hair for 2 seconds\n", current_chair->order_number);
+                sleep(2);
 
-            pthread_cond_signal(&current_customer->customer_cv);
-            current_customer->customer_state = CUSTOMER_CLEAN;
-            printf("Barber unlocked Customer_%zd outside\n", current_customer->id);
+                current_customer = (customer_t*)current_chair->customer_on_chair;
 
-            pthread_mutex_unlock(&current_customer->customer_mutex);
-            pthread_mutex_unlock(&chair_queue->chair_queue_mutex);
+                pthread_mutex_lock(&current_customer->customer_mutex);
+                printf("Barber locked Customer_%zd to change state\n", current_customer->id);
+
+                pthread_cond_signal(&current_customer->customer_cv);
+                current_customer->customer_state = CUSTOMER_CLEAN;
+                printf("Barber unlocked Customer_%zd outside\n", current_customer->id);
+
+                pthread_mutex_unlock(&current_customer->customer_mutex);
+                pthread_mutex_unlock(&chair_queue->chair_queue_mutex);
+            }
+            else
+            {
+                printf("Barber seen chair %zd to be empty\n", current_chair->order_number);
+                pthread_mutex_unlock(&chair_queue->chair_queue_mutex);
+            }
         }
-        else
-        {
-            printf("Barber seen chair %zd to be empty\n", current_chair->order_number);
-            pthread_mutex_unlock(&chair_queue->chair_queue_mutex);
-            empty_chairs_count++;
-        }
-
-        i++;
     }
 
     return NULL; //Just for in case. Considered to be good programming practice

@@ -5,7 +5,9 @@
 typedef enum barber_state_
 {
     BARBER_WORKING,
-    BARBER_SLEEPING
+    BARBER_SLEEPING,
+    BARBER_NOT_GOING_TO_SLEEP,
+    BARBER_GOING_TO_SLEEP
 }barber_state_t;
 
 typedef struct barber_
