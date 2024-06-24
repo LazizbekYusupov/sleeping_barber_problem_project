@@ -53,7 +53,6 @@ chair_t* get_chair_in_position(chair_queue_t* chair_queue_obj, size_t position)
     glthread_t* glued_queue = chair_queue_obj->gl_queue_list;
 
     glthread_node_t* next_glnode = NULL;
-    int i = 0;
 
     if(!glued_queue->head){
         return NULL;

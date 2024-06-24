@@ -1,0 +1,673 @@
+# callgrind format
+version: 1
+creator: xtree-1
+pid: 29528
+cmd: ./sleeping_barber_vsc
+
+positions: line
+event: curB : currently allocated Bytes
+event: curBk : currently allocated Blocks
+event: totB : total allocated Bytes
+event: totBk : total allocated Blocks
+event: totFdB : total Freed Bytes
+event: totFdBk : total Freed Blocks
+events: curB  curBk  totB  totBk  totFdB  totFdBk 
+fl=(1) /mnt/c/Users/User/Desktop/Developer/sleeping_barber_problem_project/main.c
+fn=(1) main
+10
+cfi=(2) /mnt/c/Users/User/Desktop/Developer/sleeping_barber_problem_project/barbershop_universe.c
+cfn=(2) barbershop_simulation_start
+calls=0 17
+10 176 1 176 1 0 0
+fl=(2)
+fn=(2)
+17
+cfi=(3) /mnt/c/Users/User/Desktop/Developer/sleeping_barber_problem_project/barber.c
+cfn=(3) barber_init
+calls=0 12
+17 176 1 176 1 0 0
+fl=(3)
+fn=(3)
+12 176 1 176 1 0 0
+
+fl=(1)
+fn=(1)
+10
+cfi=(2)
+cfn=(2)
+calls=0 18
+10 16 1 16 1 0 0
+fl=(2)
+fn=(2)
+18
+cfi=(4) /mnt/c/Users/User/Desktop/Developer/sleeping_barber_problem_project/barbershop.c
+cfn=(4) barbershop_init
+calls=0 10
+18 16 1 16 1 0 0
+fl=(4)
+fn=(4)
+10 16 1 16 1 0 0
+
+fl=(1)
+fn=(1)
+10
+cfi=(2)
+cfn=(2)
+calls=0 18
+10 104 1 104 1 0 0
+fl=(2)
+fn=(2)
+18
+cfi=(4)
+cfn=(4)
+calls=0 12
+18 104 1 104 1 0 0
+fl=(4)
+fn=(4)
+12
+cfi=(5) /mnt/c/Users/User/Desktop/Developer/sleeping_barber_problem_project/chairs_queue.c
+cfn=(5) chairs_queue_create
+calls=0 38
+12 104 1 104 1 0 0
+fl=(5)
+fn=(5)
+38 104 1 104 1 0 0
+
+fl=(1)
+fn=(1)
+10
+cfi=(2)
+cfn=(2)
+calls=0 18
+10 104 1 104 1 0 0
+fl=(2)
+fn=(2)
+18
+cfi=(4)
+cfn=(4)
+calls=0 12
+18 104 1 104 1 0 0
+fl=(4)
+fn=(4)
+12
+cfi=(5)
+cfn=(5)
+calls=0 39
+12 104 1 104 1 0 0
+fl=(5)
+fn=(5)
+39
+cfi=(5)
+cfn=(6) chair_queue_init
+calls=0 13
+39 104 1 104 1 0 0
+fl=(5)
+fn=(6)
+13 104 1 104 1 0 0
+
+fl=(1)
+fn=(1)
+10
+cfi=(2)
+cfn=(2)
+calls=0 18
+10 640 5 640 5 0 0
+fl=(2)
+fn=(2)
+18
+cfi=(4)
+cfn=(4)
+calls=0 12
+18 640 5 640 5 0 0
+fl=(4)
+fn=(4)
+12
+cfi=(5)
+cfn=(5)
+calls=0 43
+12 640 5 640 5 0 0
+fl=(5)
+fn=(5)
+43 640 5 640 5 0 0
+
+fl=(1)
+fn=(1)
+10
+cfi=(2)
+cfn=(2)
+calls=0 20
+10 272 1 272 1 0 0
+fl=(2)
+fn=(2)
+20
+cfi=(3)
+cfn=(7) barber_create
+calls=0 37
+20 272 1 272 1 0 0
+fl=(3)
+fn=(7)
+37
+cfi=(6) UnknownFile???
+cfn=(8) UnknownFn???
+calls=0 0
+37 272 1 272 1 0 0
+fl=(6)
+fn=(8)
+0
+cfi=(7) /build/glibc-SzIz7B/glibc-2.31/nptl/allocatestack.c
+cfn=(9) pthread_create@@GLIBC_2.2.5
+calls=0 622
+0 272 1 272 1 0 0
+fl=(7)
+fn=(9)
+622
+cfi=(8) /build/glibc-SzIz7B/glibc-2.31/elf/../elf/dl-tls.c
+cfn=(10) _dl_allocate_tls
+calls=0 286
+622 272 1 272 1 0 0
+fl=(8)
+fn=(10)
+286 272 1 272 1 0 0
+
+fl=(9) /build/glibc-SzIz7B/glibc-2.31/misc/../sysdeps/unix/sysv/linux/x86_64/clone.S
+fn=(11) clone
+95
+cfi=(10) /build/glibc-SzIz7B/glibc-2.31/nptl/pthread_create.c
+cfn=(12) start_thread
+calls=0 477
+95 1024 1 1024 1 0 0
+fl=(10)
+fn=(12)
+477
+cfi=(6)
+cfn=(8)
+calls=0 0
+477 1024 1 1024 1 0 0
+fl=(6)
+fn=(8)
+0
+cfi=(2)
+cfn=(13) barber_lifecycle
+calls=0 118
+0 1024 1 1024 1 0 0
+fl=(2)
+fn=(13)
+118
+cfi=(11) /build/glibc-SzIz7B/glibc-2.31/libio/ioputs.c
+cfn=(14) puts
+calls=0 40
+118 1024 1 1024 1 0 0
+fl=(11)
+fn=(14)
+40
+cfi=(12) /build/glibc-SzIz7B/glibc-2.31/libio/fileops.c
+cfn=(15) _IO_file_xsputn@@GLIBC_2.2.5
+calls=0 1244
+40 1024 1 1024 1 0 0
+fl=(12)
+fn=(15)
+1244
+cfi=(12)
+cfn=(16) _IO_file_overflow@@GLIBC_2.2.5
+calls=0 745
+1244 1024 1 1024 1 0 0
+fl=(12)
+fn=(16)
+745
+cfi=(13) /build/glibc-SzIz7B/glibc-2.31/libio/genops.c
+cfn=(17) _IO_doallocbuf
+calls=0 347
+745 1024 1 1024 1 0 0
+fl=(13)
+fn=(17)
+347
+cfi=(14) /build/glibc-SzIz7B/glibc-2.31/libio/filedoalloc.c
+cfn=(18) _IO_file_doallocate
+calls=0 101
+347 1024 1 1024 1 0 0
+fl=(14)
+fn=(18)
+101 1024 1 1024 1 0 0
+
+fl=(1)
+fn=(1)
+10
+cfi=(2)
+cfn=(2)
+calls=0 22
+10 1920 10 1920 10 0 0
+fl=(2)
+fn=(2)
+22
+cfi=(2)
+cfn=(19) create_all_customers
+calls=0 36
+22 1920 10 1920 10 0 0
+fl=(2)
+fn=(19)
+36
+cfi=(15) /mnt/c/Users/User/Desktop/Developer/sleeping_barber_problem_project/customer.c
+cfn=(20) customer_init
+calls=0 13
+36 1920 10 1920 10 0 0
+fl=(15)
+fn=(20)
+13 1920 10 1920 10 0 0
+
+fl=(1)
+fn=(1)
+10
+cfi=(2)
+cfn=(2)
+calls=0 22
+10 2720 10 2720 10 0 0
+fl=(2)
+fn=(2)
+22
+cfi=(2)
+cfn=(19)
+calls=0 37
+22 2720 10 2720 10 0 0
+fl=(2)
+fn=(19)
+37
+cfi=(15)
+cfn=(21) customer_create
+calls=0 40
+37 2720 10 2720 10 0 0
+fl=(15)
+fn=(21)
+40
+cfi=(6)
+cfn=(8)
+calls=0 0
+40 2720 10 2720 10 0 0
+fl=(6)
+fn=(8)
+0
+cfi=(7)
+cfn=(9)
+calls=0 622
+0 2720 10 2720 10 0 0
+fl=(7)
+fn=(9)
+622
+cfi=(8)
+cfn=(10)
+calls=0 286
+622 2720 10 2720 10 0 0
+fl=(8)
+fn=(10)
+286 2720 10 2720 10 0 0
+
+fl=(16) /build/glibc-SzIz7B/glibc-2.31/nptl/../sysdeps/nptl/unwind-forcedunwind.c
+fn=(22) pthread_cancel_init
+53
+cfi=(17) /build/glibc-SzIz7B/glibc-2.31/elf/dl-libc.c
+cfn=(23) __libc_dlopen_mode
+calls=0 46
+53 36 1 36 1 0 0
+fl=(17)
+fn=(23)
+46
+cfi=(18) /build/glibc-SzIz7B/glibc-2.31/elf/dl-error-skeleton.c
+cfn=(24) _dl_catch_error
+calls=0 227
+46 36 1 36 1 0 0
+fl=(18)
+fn=(24)
+227
+cfi=(18)
+cfn=(25) _dl_catch_exception
+calls=0 208
+227 36 1 36 1 0 0
+fl=(18)
+fn=(25)
+208
+cfi=(17)
+cfn=(26) do_dlopen
+calls=0 96
+208 36 1 36 1 0 0
+fl=(17)
+fn=(26)
+96
+cfi=(19) /build/glibc-SzIz7B/glibc-2.31/elf/dl-open.c
+cfn=(27) _dl_open
+calls=0 837
+96 36 1 36 1 0 0
+fl=(19)
+fn=(27)
+837
+cfi=(18)
+cfn=(25)
+calls=0 208
+837 36 1 36 1 0 0
+fl=(18)
+fn=(25)
+208
+cfi=(19)
+cfn=(28) dl_open_worker
+calls=0 513
+208 36 1 36 1 0 0
+fl=(19)
+fn=(28)
+513
+cfi=(20) /build/glibc-SzIz7B/glibc-2.31/elf/dl-load.c
+cfn=(29) _dl_map_object
+calls=0 2102
+513 36 1 36 1 0 0
+fl=(20)
+fn=(29)
+2102
+cfi=(21) /build/glibc-SzIz7B/glibc-2.31/elf/dl-cache.c
+cfn=(30) _dl_load_cache_lookup
+calls=0 338
+2102 36 1 36 1 0 0
+fl=(21)
+fn=(30)
+338
+cfi=(22) /build/glibc-SzIz7B/glibc-2.31/string/strdup.c
+cfn=(31) strdup
+calls=0 42
+338 36 1 36 1 0 0
+fl=(22)
+fn=(31)
+42 36 1 36 1 0 0
+
+fl=(16)
+fn=(22)
+53
+cfi=(17)
+cfn=(23)
+calls=0 46
+53 1198 1 1198 1 0 0
+fl=(17)
+fn=(23)
+46
+cfi=(18)
+cfn=(24)
+calls=0 227
+46 1198 1 1198 1 0 0
+fl=(18)
+fn=(24)
+227
+cfi=(18)
+cfn=(25)
+calls=0 208
+227 1198 1 1198 1 0 0
+fl=(18)
+fn=(25)
+208
+cfi=(17)
+cfn=(26)
+calls=0 96
+208 1198 1 1198 1 0 0
+fl=(17)
+fn=(26)
+96
+cfi=(19)
+cfn=(27)
+calls=0 837
+96 1198 1 1198 1 0 0
+fl=(19)
+fn=(27)
+837
+cfi=(18)
+cfn=(25)
+calls=0 208
+837 1198 1 1198 1 0 0
+fl=(18)
+fn=(25)
+208
+cfi=(19)
+cfn=(28)
+calls=0 513
+208 1198 1 1198 1 0 0
+fl=(19)
+fn=(28)
+513
+cfi=(20)
+cfn=(29)
+calls=0 2236
+513 1198 1 1198 1 0 0
+fl=(20)
+fn=(29)
+2236
+cfi=(20)
+cfn=(32) _dl_map_object_from_fd
+calls=0 997
+2236 1198 1 1198 1 0 0
+fl=(20)
+fn=(32)
+997
+cfi=(23) /build/glibc-SzIz7B/glibc-2.31/elf/dl-object.c
+cfn=(33) _dl_new_object
+calls=0 89
+997 1198 1 1198 1 0 0
+fl=(23)
+fn=(33)
+89 1198 1 1198 1 0 0
+
+fl=(16)
+fn=(22)
+53
+cfi=(17)
+cfn=(23)
+calls=0 46
+53 36 1 36 1 0 0
+fl=(17)
+fn=(23)
+46
+cfi=(18)
+cfn=(24)
+calls=0 227
+46 36 1 36 1 0 0
+fl=(18)
+fn=(24)
+227
+cfi=(18)
+cfn=(25)
+calls=0 208
+227 36 1 36 1 0 0
+fl=(18)
+fn=(25)
+208
+cfi=(17)
+cfn=(26)
+calls=0 96
+208 36 1 36 1 0 0
+fl=(17)
+fn=(26)
+96
+cfi=(19)
+cfn=(27)
+calls=0 837
+96 36 1 36 1 0 0
+fl=(19)
+fn=(27)
+837
+cfi=(18)
+cfn=(25)
+calls=0 208
+837 36 1 36 1 0 0
+fl=(18)
+fn=(25)
+208
+cfi=(19)
+cfn=(28)
+calls=0 513
+208 36 1 36 1 0 0
+fl=(19)
+fn=(28)
+513
+cfi=(20)
+cfn=(29)
+calls=0 2236
+513 36 1 36 1 0 0
+fl=(20)
+fn=(29)
+2236
+cfi=(20)
+cfn=(32)
+calls=0 997
+2236 36 1 36 1 0 0
+fl=(20)
+fn=(32)
+997
+cfi=(23)
+cfn=(33)
+calls=0 196
+997 36 1 36 1 0 0
+fl=(23)
+fn=(33)
+196 36 1 36 1 0 0
+
+fl=(24) /build/glibc-SzIz7B/glibc-2.31/nptl/unwind.c
+fn=(34) __pthread_unwind
+121
+cfi=(16)
+cfn=(35) _Unwind_ForcedUnwind
+calls=0 127
+121 56 1 56 1 0 0
+fl=(16)
+fn=(35)
+127
+cfi=(16)
+cfn=(22)
+calls=0 53
+127 56 1 56 1 0 0
+fl=(16)
+fn=(22)
+53
+cfi=(17)
+cfn=(23)
+calls=0 46
+53 56 1 56 1 0 0
+fl=(17)
+fn=(23)
+46
+cfi=(18)
+cfn=(24)
+calls=0 227
+46 56 1 56 1 0 0
+fl=(18)
+fn=(24)
+227
+cfi=(18)
+cfn=(25)
+calls=0 208
+227 56 1 56 1 0 0
+fl=(18)
+fn=(25)
+208
+cfi=(17)
+cfn=(26)
+calls=0 96
+208 56 1 56 1 0 0
+fl=(17)
+fn=(26)
+96
+cfi=(19)
+cfn=(27)
+calls=0 837
+96 56 1 56 1 0 0
+fl=(19)
+fn=(27)
+837
+cfi=(18)
+cfn=(25)
+calls=0 208
+837 56 1 56 1 0 0
+fl=(18)
+fn=(25)
+208
+cfi=(19)
+cfn=(28)
+calls=0 571
+208 56 1 56 1 0 0
+fl=(19)
+fn=(28)
+571
+cfi=(25) /build/glibc-SzIz7B/glibc-2.31/elf/dl-deps.c
+cfn=(36) _dl_map_object_deps
+calls=0 479
+571 56 1 56 1 0 0
+fl=(25)
+fn=(36)
+479 56 1 56 1 0 0
+
+fl=(24)
+fn=(34)
+121
+cfi=(16)
+cfn=(35)
+calls=0 127
+121 384 1 384 1 0 0
+fl=(16)
+fn=(35)
+127
+cfi=(16)
+cfn=(22)
+calls=0 53
+127 384 1 384 1 0 0
+fl=(16)
+fn=(22)
+53
+cfi=(17)
+cfn=(23)
+calls=0 46
+53 384 1 384 1 0 0
+fl=(17)
+fn=(23)
+46
+cfi=(18)
+cfn=(24)
+calls=0 227
+46 384 1 384 1 0 0
+fl=(18)
+fn=(24)
+227
+cfi=(18)
+cfn=(25)
+calls=0 208
+227 384 1 384 1 0 0
+fl=(18)
+fn=(25)
+208
+cfi=(17)
+cfn=(26)
+calls=0 96
+208 384 1 384 1 0 0
+fl=(17)
+fn=(26)
+96
+cfi=(19)
+cfn=(27)
+calls=0 837
+96 384 1 384 1 0 0
+fl=(19)
+fn=(27)
+837
+cfi=(18)
+cfn=(25)
+calls=0 208
+837 384 1 384 1 0 0
+fl=(18)
+fn=(25)
+208
+cfi=(19)
+cfn=(28)
+calls=0 577
+208 384 1 384 1 0 0
+fl=(19)
+fn=(28)
+577
+cfi=(26) /build/glibc-SzIz7B/glibc-2.31/elf/dl-version.c
+cfn=(37) _dl_check_map_versions
+calls=0 274
+577 384 1 384 1 0 0
+fl=(26)
+fn=(37)
+274 384 1 384 1 0 0
+
+totals: 8686 36 8686 36 0 0

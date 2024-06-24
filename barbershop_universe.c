@@ -99,7 +99,6 @@ void* customer_lifecycle(void* arg)
         else
         {
             printf("Customer_%zd gt = %zd seen all chairs full and leaving barbershop\n", customer->id, customer->grow_time);
-            pthread_mutex_unlock(&chair_queue->chair_queue_mutex);
             pthread_mutex_unlock(&customer->customer_mutex);
             continue;
         }
@@ -149,6 +148,7 @@ void* barber_lifecycle(void* arg)
                 sleep(2);
 
                 current_customer = (customer_t*)current_chair->customer_on_chair;
+                current_chair->customer_on_chair = NULL;
 
                 pthread_mutex_lock(&current_customer->customer_mutex);
                 printf("Barber locked Customer_%zd to change state\n", current_customer->id);
@@ -166,6 +166,8 @@ void* barber_lifecycle(void* arg)
                 pthread_mutex_unlock(&chair_queue->chair_queue_mutex);
             }
         }
+
+        sleep(1);
     }
 
     return NULL; //Just for in case. Considered to be good programming practice
